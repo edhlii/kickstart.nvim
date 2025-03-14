@@ -2,6 +2,7 @@
 -- require("custom.keymaps") -- Custom keybindings
 -- require("custom.plugins") -- Custom plugins
 require 'custom.snippets.edhliicpp' -- Custom snippets
+require 'custom.snippets.edhliic' -- Custom snippets
 
 -- Set some editor options
 vim.opt.number = true
