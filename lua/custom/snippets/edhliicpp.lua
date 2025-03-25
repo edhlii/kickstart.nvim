@@ -25,4 +25,19 @@ ls.add_snippets('cpp', {
       '}',
     },
   }),
+  s('binpow', {
+    t {
+      'll binpow(ll a, ll b, ll c) {',
+      '  ll res = 1;',
+      '  while (b != 0) {',
+      '    if (b & 1) {',
+      '      res = (res * a) % c;',
+      '    }',
+      '    b = b >> 1;',
+      '    a = (a * a) % c;',
+      '  }',
+      '  return res;',
+      '}',
+    },
+  }),
 })
