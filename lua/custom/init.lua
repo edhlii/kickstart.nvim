@@ -3,6 +3,7 @@
 -- require("custom.plugins") -- Custom plugins
 require 'custom.snippets.edhliicpp' -- Custom snippets
 require 'custom.snippets.edhliic' -- Custom snippets
+require 'custom.snippets.testgen'
 
 -- Set some editor options
 vim.opt.number = true

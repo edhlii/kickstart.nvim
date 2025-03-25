@@ -1,0 +1,48 @@
+local ls = require 'luasnip'
+local s = ls.snippet
+local t = ls.text_node
+
+ls.add_snippets('cpp', {
+  s('testgen', {
+    t {
+      '#include <bits/stdc++.h>',
+      '#define NAME "BAI1"',
+      'using namespace std;',
+      'typedef long long ll;',
+      'typedef unsigned long long ull;',
+      'const int N = 1000006;',
+      'const ll MOD = 1000000007;',
+      '',
+      'const int NTEST = 100;',
+      'mt19937 rd(chrono::steady_clock::now().time_since_epoch().count());',
+      '',
+      'long long Rand(long long l, long long h) {',
+      '  unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();',
+      '  mt19937 gen(seed);',
+      '  uniform_int_distribution<long long> dis(l, h);',
+      '  long long x = dis(gen);',
+      '  return x;',
+      '}',
+      '',
+      'void MakeTest() {',
+      '  ofstream cout(NAME ".INP");',
+      '  cout << "test";',
+      '}',
+      '',
+      'int main() {',
+      '  srand(time(0));',
+      '  for (int iTest = 1; iTest <= NTEST; iTest++) {',
+      '    MakeTest();',
+      '    system("./" NAME "_trau");',
+      '    system("./" NAME);',
+      '    if (system("diff " NAME ".OUT " NAME ".ANS") != 0) {',
+      '      cout << "Test " << iTest << ": WRONG!\\n";',
+      '      return 0;',
+      '    }',
+      '    cout << "Test " << iTest << ": CORRECT!\\n";',
+      '  }',
+      '  return 0;',
+      '}',
+    },
+  }),
+})
