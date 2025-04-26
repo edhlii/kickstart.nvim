@@ -3,6 +3,9 @@
 local ls = require 'luasnip'
 local s = ls.snippet
 local t = ls.text_node
+local i = ls.insert_node
+local fmt = require('luasnip.extras.fmt').fmt
+local rep = require('luasnip.extras').rep
 
 ls.add_snippets('cpp', {
   s('cpptemplate', {
@@ -256,4 +259,33 @@ ls.add_snippets('cpp', {
       '};',
     },
   }),
+  s(
+    'fib',
+    fmt(
+      [[
+pair<ll, ll> {}(ll {}) {{
+  if ({} == 0)
+    return {{0, 1}};
+  auto p = {}({} >> 1);
+  ll a = p.first;
+  ll b = p.second;
+  ll c = (a * ((2 * b % MOD - a + MOD) % MOD)) % MOD;
+  ll d = ((a * a) % MOD + (b * b) % MOD) % MOD;
+  if ({} & 1) {{
+    return {{d, (c + d) % MOD}};
+  }} else {{
+    return {{c, d}};
+  }}
+}}
+]],
+      {
+        i(1, 'fibonacci'), -- function name
+        i(2, 'n'), -- input variable
+        rep(2), -- reuse n
+        rep(1), -- reuse function name
+        rep(2), -- reuse n
+        rep(2), -- reuse n
+      }
+    )
+  ),
 })
